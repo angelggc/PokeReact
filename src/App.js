@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import PokeList from './component/pokeList';
+import Nav from "./component/nav";
+import { DataContext } from './context/pokemonContext';
 
 function App() {
+  const  [pokeState]  = useContext(DataContext)
+
+  function cargando(){
+    return <div className="m-0 vh-100 row justify-content-center align-items-center">
+      <div className="text-center">
+        <div className="spinner-border" role="status">
+        </div>
+      </div>
+    </div>
+  }
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container ">
+      
+      { pokeState != undefined ? <Nav /> : console.log("Esperando Api")}
+      
+      <div className="row">
+        
+        { pokeState != undefined ? pokeState.map((e, index)=>{
+            return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} key = {index} abilities = {e.abilities}/>
+          } ) : cargando()}
+        </div>
     </div>
   );
 }
