@@ -1,4 +1,4 @@
-import React, {createContext, useState, useEffect} from 'react';
+import React, {createContext, useState} from 'react';
 
 export const SearchContext = createContext()
 
@@ -12,4 +12,4 @@ export const BusquedaContext = ({ children }) => {
        </SearchContext.Provider>
     )
   
-  }
+}

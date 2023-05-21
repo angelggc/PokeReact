@@ -30,10 +30,10 @@ function App() {
         { 
           pokeState != undefined ? (
             searchState == "" ? pokeState.map((e, index)=>{
-              return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} key = {index} abilities = {e.abilities}/>
+              return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} keyid = {e.id} abilities = {e.abilities}/>
             } ) : pokeState.map((e, index)=>{
               if(e.name.includes(searchState)){
-                return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} key = {index} abilities = {e.abilities}/>
+                return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} keyid = {e.id} abilities = {e.abilities}/>
               } 
             } )
           ) : cargando()
