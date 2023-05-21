@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import PokeList from './component/pokeList';
 import Nav from "./component/nav";
 import { DataContext } from './context/pokemonContext';
+import { SearchContext } from './context/searchContext'
 
 function App() {
+
   const  [pokeState]  = useContext(DataContext)
+  const [searchState] = useContext(SearchContext)
 
   function cargando(){
     return <div className="m-0 vh-100 row justify-content-center align-items-center">
@@ -24,10 +27,19 @@ function App() {
       
       <div className="row">
         
-        { pokeState != undefined ? pokeState.map((e, index)=>{
-            return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} key = {index} abilities = {e.abilities}/>
-          } ) : cargando()}
-        </div>
+        { 
+          pokeState != undefined ? (
+            searchState == "" ? pokeState.map((e, index)=>{
+              return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} key = {index} abilities = {e.abilities}/>
+            } ) : pokeState.map((e, index)=>{
+              if(e.name.includes(searchState)){
+                return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} key = {index} abilities = {e.abilities}/>
+              } 
+            } )
+          ) : cargando()
+        }
+
+      </div>
     </div>
   );
 }

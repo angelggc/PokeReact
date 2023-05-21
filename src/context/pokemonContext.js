@@ -11,12 +11,12 @@ export const PokemonContext = ({ children }) => {
   const [pokeState, setPokemon] = useState()
 
   const fetchApi = async () =>{
-    const response = await fetch(url)
+    const response =  await fetch(url)
     const responseJSON = await response.json()
 
-    const listapokecompleta = []
+    const listapokecompleta = [] 
 
-    for (let index = 0; index < JSON.stringify(responseJSON.count); index++) {
+    for (let index = 0; index < responseJSON.count; index++) { 
       await fetch(responseJSON.results[index].url)
       .then(response => response.json())
       .then(data => listapokecompleta.push(data))
