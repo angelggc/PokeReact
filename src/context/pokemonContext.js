@@ -10,9 +10,14 @@ export const PokemonContext = ({ children }) => {
 
   const [pokeState, setPokemon] = useState()
 
+  // El uso de las api es algo que no termine de entender, pero con este trabajo pude repasar algo
+  // Hago una peticion a la api de pokemon pero como me entrega solo el nombre y un url mas abajo hago otra peticion
+
   const fetchApi = async () =>{
     const response =  await fetch(url)
     const responseJSON = await response.json()
+
+    // Un for itera la respuesta de la primera peticion pusheando la data de todos los pokemones a un array
 
     const listapokecompleta = [] 
 
@@ -25,6 +30,8 @@ export const PokemonContext = ({ children }) => {
 
     }
 
+    // Guardo la lista completa a pokeState
+
     setPokemon(listapokecompleta)
   }
 
@@ -32,6 +39,8 @@ export const PokemonContext = ({ children }) => {
     fetchApi()
   }, [])
   
+  // Se retorna pokeState como un contexto
+
   return (
      <DataContext.Provider value ={[pokeState , setPokemon]}>
       {children}

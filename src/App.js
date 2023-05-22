@@ -19,20 +19,21 @@ function App() {
   }
 
 
+  // Si pokeState(contiene la informacion de los pokemones) existe, muestra el Nav y la lista de pokemones, de lo contrario muesta la pantalla de carga
 
   return (
     <div className="App container ">
       
-      { pokeState != undefined ? <Nav /> : console.log("Esperando Api")}
+      { pokeState !== undefined ? <Nav /> : console.log("Esperando Api")}
       
       <div className="row">
         
         { 
-          pokeState != undefined ? (
-            searchState == "" ? pokeState.map((e, index)=>{
+          pokeState !== undefined ? (
+            searchState === "" ? pokeState.map((e, index)=>{
               return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} keyid = {e.id} abilities = {e.abilities}/>
-            } ) : pokeState.map((e, index)=>{
-              if(e.name.includes(searchState)){
+            } ) : pokeState.map((e)=>{
+              if(e.name.includes(searchState) || e.abilities[0].ability.name.includes(searchState) || (e.abilities[1]? e.abilities[1].ability.name.includes(searchState): false) || (e.abilities[2]? e.abilities[2].ability.name.includes(searchState): false)){
                 return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} keyid = {e.id} abilities = {e.abilities}/>
               } 
             } )

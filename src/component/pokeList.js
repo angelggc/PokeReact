@@ -22,7 +22,7 @@ export default function PokeList(props){
                                 })}
                             </ul>
                         </div>
-                        <div className="col-1"><input type="checkbox" className="form-check-input" checked={deleteState} ></input></div>
+                        <div className="col-1"><input type="checkbox" className="form-check-input" ></input></div>
                     </div>
             </div>
                 
