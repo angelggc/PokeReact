@@ -31,10 +31,10 @@ function App() {
         { 
           pokeState !== undefined ? (
             searchState === "" ? pokeState.map((e, index)=>{
-              return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} keyid = {e.id} abilities = {e.abilities}/>
+              return <PokeList pokemon= {e}/>
             } ) : pokeState.map((e)=>{
               if(e.name.includes(searchState) || e.abilities[0].ability.name.includes(searchState) || (e.abilities[1]? e.abilities[1].ability.name.includes(searchState): false) || (e.abilities[2]? e.abilities[2].ability.name.includes(searchState): false)){
-                return <PokeList nombre = {e.name} peso = {e.weight} imagen = {e.sprites.front_default} keyid = {e.id} abilities = {e.abilities}/>
+                return <PokeList pokemon= {e}/>
               } 
             } )
           ) : cargando()
