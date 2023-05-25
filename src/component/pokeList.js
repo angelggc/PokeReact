@@ -9,7 +9,7 @@ export default function PokeList(props){
 
     const [deleteState, setDelete] = useContext(EliminarContext)
 
-    return  <div className="col-md-6 border rounded">
+    return  <div className="col-md-6 border rounded" >
                     <div className="row">
                         <img className="col-4" src= {props.pokemon.sprites.front_default}></img>
                         <div className="col-7">
@@ -18,7 +18,7 @@ export default function PokeList(props){
                             <h6>Habilidades:</h6>
                             <ul>
                                 {props.pokemon.abilities.map((e,i)=>{
-                                    return <li key={e.ability.name+i}>{priMayus(e.ability.name).replace( "-" , " ")}</li>
+                                    return <li key={e.ability.name +  i}>{priMayus(e.ability.name).replace( "-" , " ")}</li>
                                 })}
                             </ul>
                         </div>

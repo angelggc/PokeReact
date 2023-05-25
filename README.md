@@ -13,7 +13,3 @@ Bootstrap (Visuales)
 Feather Icons (Iconos)  
 React Infinite Scroll Component (Scroll infinito, No implementado/Proximamente)
 
-## Palabras finales
-
-Gracias a este challenge pude ver temas de React que no tenia en cuenta cuando estudiaba esta biblioteca, estoy conciente que no cumpli todos los requerimientos del challenge y aunque no pase la prueba, ya tengo una base de donde seguir practicando React.  
-Agradesco a la fundacion Formar por todo lo que a echo por mi estos ultimos años y la ayuda brindada, en especial a Vicky, Eric y Pio. Gracias
