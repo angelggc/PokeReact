@@ -11,5 +11,3 @@ Pokereact es una galeria responsive que muestra todos los pokemons resgistrados 
 CREATE-REACT-APP (Creacion de la app)  
 Bootstrap (Visuales)  
 Feather Icons (Iconos)  
-React Infinite Scroll Component (Scroll infinito, No implementado/Proximamente)
-
